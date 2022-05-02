@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
-[assembly:Parallelizable(ParallelScope.Fixtures)]
+using OpenQA.Selenium.Firefox;
 
 namespace RegionTests
 {
-
-    [TestFixture("Chrome")]
-    [TestFixture("Firefox")]
     public class Tests
     {
         private IWebDriver driver;
@@ -21,17 +18,10 @@ namespace RegionTests
 
         private readonly By _city_select_loc = By.XPath("//div[contains(@class,'city-select')]/div/p");
 
-        private string _browser;
-
-        public Tests(string browser)
-        {
-            _browser = browser;
-        }
-
         [SetUp]
         public void Setup()
         {
-            dynamic capability = GetBrowserOption(_browser);
+            //driver = new TWebDriver();
             driver = new OpenQA.Selenium.Chrome.ChromeDriver();
             driver.Navigate().GoToUrl("https://www.dns-shop.ru");
             driver.FindElement(By.CssSelector(".pull-right")).Click();
@@ -41,6 +31,8 @@ namespace RegionTests
         [Test]
         public void Search_form()
         {
+            driver.FindElement(By.XPath("//div[text()='Ваш город']"));
+
             var search_form = driver.FindElement(_search_form_loc);
 
             string input_text = "То";
@@ -68,10 +60,9 @@ namespace RegionTests
 
             Random rnd = new Random();
             string random_city = cities[rnd.Next(cities.Count)];
-            Console.WriteLine(random_city);
             driver.FindElement(By.XPath($"//a[text()='{random_city}']")).Click();
-            string actual_selected = driver.FindElement(_city_select_loc).GetAttribute("value");
-            Console.WriteLine(actual_selected);
+            Thread.Sleep(1000);
+            string actual_selected = driver.FindElement(_city_select_loc).GetDomProperty("innerText");
             Assert.AreEqual(random_city, actual_selected, "Expected another text");
         }
 
@@ -108,7 +99,11 @@ namespace RegionTests
 
             driver.FindElement(By.XPath("//span[text()='Южный']")).Click();
             driver.FindElement(By.XPath("//span[text()='Краснодарский край']")).Click();
-            driver.FindElement(By.XPath("//span[text()='Агой']"));
+            string agoy = "Агой";
+            driver.FindElement(By.XPath($"//span[text()='{agoy}']")).Click();
+            Thread.Sleep(1000);
+            string actual_selected = driver.FindElement(_city_select_loc).GetDomProperty("innerText");
+            Assert.AreEqual(agoy, actual_selected, "Expected another text");
         }
 
         [TearDown]
@@ -116,17 +111,6 @@ namespace RegionTests
         {
             Console.WriteLine("Selenium webdriver quit");
             driver.Quit();
-        }
-
-        private dynamic GetBrowserOption(string browserName)
-        {
-            if (browserName == "Chrome")
-                return new OpenQA.Selenium.Chrome.ChromeOptions();
-            if (browserName == "Firefox")
-                return new OpenQA.Selenium.Firefox.FirefoxOptions();
-
-            //if non
-            return new OpenQA.Selenium.Chrome.ChromeDriver();
         }
     }
 }
