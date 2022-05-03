@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/augustsalimov/Desktop/csharp/RegionTests/RegionTests/RegionTests.csproj": {}
+    "/Users/augustsalimov/Desktop/csharp/RegionTests/RegionTests.csproj": {}
   },
   "projects": {
-    "/Users/augustsalimov/Desktop/csharp/RegionTests/RegionTests/RegionTests.csproj": {
+    "/Users/augustsalimov/Desktop/csharp/RegionTests/RegionTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/augustsalimov/Desktop/csharp/RegionTests/RegionTests/RegionTests.csproj",
+        "projectUniqueName": "/Users/augustsalimov/Desktop/csharp/RegionTests/RegionTests.csproj",
         "projectName": "RegionTests",
-        "projectPath": "/Users/augustsalimov/Desktop/csharp/RegionTests/RegionTests/RegionTests.csproj",
+        "projectPath": "/Users/augustsalimov/Desktop/csharp/RegionTests/RegionTests.csproj",
         "packagesPath": "/Users/augustsalimov/.nuget/packages/",
-        "outputPath": "/Users/augustsalimov/Desktop/csharp/RegionTests/RegionTests/obj/",
+        "outputPath": "/Users/augustsalimov/Desktop/csharp/RegionTests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/augustsalimov/.config/NuGet/NuGet.Config"

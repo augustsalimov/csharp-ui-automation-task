@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gZyxZ/NUXCaKSZ3PsvxujPshjkWWOEj9crHpHKlJb08v+YauFtClXBHqq5hkEfVGqeAelhDhLHdhMh+e5DZhFg==",
+  "dgSpecHash": "h5/ZpFxdvGe0PZCaPXdNk1GwBYeRjtxiRMmoO97pQ0M01MHHt883imkkHGhSHX/zPc4tgGVudQYfKjOdh6JXKg==",
   "success": true,
-  "projectFilePath": "/Users/augustsalimov/Desktop/csharp/RegionTests/RegionTests/RegionTests.csproj",
+  "projectFilePath": "/Users/augustsalimov/Desktop/csharp/RegionTests/RegionTests.csproj",
   "expectedPackageFiles": [
     "/Users/augustsalimov/.nuget/packages/microsoft.codecoverage/16.5.0/microsoft.codecoverage.16.5.0.nupkg.sha512",
     "/Users/augustsalimov/.nuget/packages/microsoft.dotnet.internalabstractions/1.0.0/microsoft.dotnet.internalabstractions.1.0.0.nupkg.sha512",
